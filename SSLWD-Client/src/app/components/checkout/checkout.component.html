@@ -1,0 +1,272 @@
+<div class="empty-space"></div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="container-fluid">
+        <div class="container">
+            <!-- Title -->
+            <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+                <h2 class="h5 mb-3 mb-lg-0"><a href="../../pages/admin/customers.html" class="text-muted"><i
+                            class="bi bi-arrow-left-square me-2"></i></a> Create new customer</h2>
+            </div>
+
+            <!-- Main content -->
+            <div class="row">
+                <!-- Left side -->
+                <div class="col-lg-12">
+                    <!-- Basic information -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">Basic information</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3 input-space">
+                                        <label class="form-label">First name</label>
+                                        <input formControlName="firstName" type="text" class="form-control">
+                                        <div *ngIf="form.controls['firstName'].invalid && (form.controls['firstName'].dirty || form.controls['firstName'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div
+                                                *ngIf="form.controls['firstName'].errors?.['required'] || form.controls['firstName'].errors?.['notOnlyWhitespace']">
+                                                First Name is required
+                                            </div>
+                                            <div *ngIf="form.controls['firstName'].errors?.['minlength']">
+                                                First Name must be at least 2 characters long
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Last name</label>
+                                        <input formControlName="lastName" type="text" class="form-control">
+                                        <div *ngIf="form.controls['lastName'].invalid && (form.controls['lastName'].dirty || form.controls['lastName'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div
+                                                *ngIf="form.controls['lastName'].errors?.['required'] || form.controls['lastName'].errors?.['notOnlyWhitespace']">
+                                                Last Name is required
+                                            </div>
+                                            <div *ngIf="form.controls['lastName'].errors?.['minlength']">
+                                                Last Name must be at least 2 characters long
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input formControlName="email" type="email" class="form-control">
+                                        <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div
+                                                *ngIf="form.controls['email'].errors?.['required'] || form.controls['email'].errors?.['notOnlyWhitespace']">
+                                                Email is required
+                                            </div>
+                                            <div *ngIf="form.controls['email'].errors?.['pattern']">
+                                                This is not a vaild email
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone number</label>
+                                        <input formControlName="phone" type="tel" class="form-control">
+                                        <div *ngIf="form.controls['phone'].invalid && (form.controls['phone'].dirty || form.controls['phone'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div
+                                                *ngIf="form.controls['phone'].errors?.['required'] || form.controls['phone'].errors?.['notOnlyWhitespace']">
+                                                Phone number is required
+                                            </div>
+                                            <div *ngIf="form.controls['phone'].errors?.['pattern']">
+                                                This is not a vaild Phone Number
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Address -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">Address</h3>
+                            <div class="mb-3">
+                                <label class="form-label">Address Line 1</label>
+                                <input formControlName="address1" type="text" class="form-control">
+                                <div *ngIf="form.controls['address1'].invalid && (form.controls['address1'].dirty || form.controls['address1'].touched)"
+                                    class="alert alert-danger mt-1 err-box">
+                                    <div
+                                        *ngIf="form.controls['address1'].errors?.['required'] || form.controls['address1'].errors?.['notOnlyWhitespace']">
+                                        Address is required
+                                    </div>
+                                    <div *ngIf="form.controls['address1'].errors?.['minlength']">
+                                        Address must be at least 2 characters long
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Address Line 2</label>
+                                <input formControlName="address2" type="text" class="form-control">
+                                <div *ngIf="form.controls['address2'].invalid && (form.controls['address2'].dirty || form.controls['address2'].touched)"
+                                    class="alert alert-danger mt-1 err-box">
+                                    <div
+                                        *ngIf="form.controls['address2'].errors?.['required'] || form.controls['address2'].errors?.['notOnlyWhitespace']">
+                                        Address is required
+                                    </div>
+                                    <div *ngIf="form.controls['address2'].errors?.['minlength']">
+                                        Address must be at least 2 characters long
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Country</label>
+                                        <select formControlName="country" (change)="getStates()"
+                                            class="select2 form-control select2-hidden-accessible"
+                                            data-select2-placeholder="Select country"
+                                            data-select2-id="select2-data-1-gy14" tabindex="-1" aria-hidden="true">
+                                            <option *ngFor="let country of countries" [ngValue]="country">
+                                                {{country.name}}
+                                            </option>
+                                        </select><span class="select2 select2-container select2-container--bootstrap-5"
+                                            dir="ltr" data-select2-id="select2-data-2-46y9" style="width: 391px;"><span
+                                                class="selection"><span
+                                                    class="select2-selection select2-selection--single" role="combobox"
+                                                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                    aria-disabled="false" aria-labelledby="select2-vp8l-container"
+                                                    aria-controls="select2-vp8l-container"><span
+                                                        class="select2-selection__rendered" id="select2-vp8l-container"
+                                                        role="textbox" aria-readonly="true" title="Select country"><span
+                                                            class="select2-selection__placeholder">Select
+                                                            country</span></span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        <div *ngIf="form.controls['country'].invalid && (form.controls['country'].dirty || form.controls['country'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div *ngIf="form.controls['country'].errors?.['required']">
+                                                Country is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">State</label>
+                                        <select formControlName="state"
+                                            class="select2 form-control select2-hidden-accessible"
+                                            data-select2-placeholder="Select state"
+                                            data-select2-id="select2-data-4-680y" tabindex="-1" aria-hidden="true">
+                                            <option *ngFor="let state of states" [ngValue]="state">
+                                                {{state.name}}
+                                            </option>
+                                        </select><span class="select2 select2-container select2-container--bootstrap-5"
+                                            dir="ltr" data-select2-id="select2-data-5-np4c" style="width: 391px;"><span
+                                                class="selection"><span
+                                                    class="select2-selection select2-selection--single" role="combobox"
+                                                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                    aria-disabled="false" aria-labelledby="select2-2fn7-container"
+                                                    aria-controls="select2-2fn7-container"><span
+                                                        class="select2-selection__rendered" id="select2-2fn7-container"
+                                                        role="textbox" aria-readonly="true" title="Select state"><span
+                                                            class="select2-selection__placeholder">Select
+                                                            state</span></span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        <div *ngIf="form.controls['state'].invalid && (form.controls['state'].dirty || form.controls['state'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div *ngIf="form.controls['state'].errors?.['required']">
+                                                State is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">City</label>
+                                        <input formControlName="city" type="text" class="form-control">
+                                        <div *ngIf="form.controls['city'].invalid && (form.controls['city'].dirty || form.controls['city'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div
+                                                *ngIf="form.controls['city'].errors?.['required'] || form.controls['city'].errors?.['notOnlyWhitespace']">
+                                                City is required
+                                            </div>
+                                            <div *ngIf="form.controls['city'].errors?.['minlength']">
+                                                City must be at least 2 characters long
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">ZIP code</label>
+                                        <input formControlName="zip" type="text" class="form-control">
+                                        <div *ngIf="form.controls['zip'].invalid && (form.controls['zip'].dirty || form.controls['zip'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div
+                                                *ngIf="form.controls['zip'].errors?.['required'] || form.controls['zip'].errors?.['notOnlyWhitespace']">
+                                                Zip Code is required
+                                            </div>
+                                            <div *ngIf="form.controls['zip'].errors?.['minlength']">
+                                                Zip Code must be at least 2 characters long
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Service Type</label>
+                                        <select formControlName="service"
+                                            class="select2 form-control select2-hidden-accessible"
+                                            data-select2-placeholder="Select country"
+                                            data-select2-id="select2-data-1-gy14" tabindex="-1" aria-hidden="true">
+                                            <option value="b">Basic - 10/mth (1 year)</option>
+                                            <option value="s">Standard - 30/mth (1 year)</option>
+                                            <option value="p">Pro - 60/mth (1 year)</option>
+                                        </select>
+                                        <div *ngIf="form.controls['service'].invalid && (form.controls['service'].dirty || form.controls['service'].touched)"
+                                            class="alert alert-danger mt-1 err-box">
+                                            <div *ngIf="form.controls['service'].errors?.['required']">
+                                                Type of Service is required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Stripe Credit Card Section -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">Credit or Debit Card</h3>
+                            <div class="mb-3" formControlName="creditCard">
+                                <div id="card-element">
+
+                                </div>
+
+                                <!-- display form error -->
+                                <div id="card-errors" class="displayError.textContent!=='': 'alert alert-danger mt-1'">
+                                </div>
+
+                            </div>
+                            <div class="hstack gap-3">
+                                <button class="btn btn-primary btn-md btn-icon-text" type="submit"><i
+                                        class="bi bi-save"></i> <span class="text">Proceed With Payment</span></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

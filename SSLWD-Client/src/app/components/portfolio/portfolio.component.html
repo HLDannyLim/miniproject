@@ -1,0 +1,36 @@
+<div class="img-bg">
+    <p class="img-text" style="color:darkgray">My Portfolio</p>
+</div>
+
+    <!-- ======= My Portfolio Section ======= -->
+<br>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+
+          <ul id="portfolio-flters" class="d-flex">
+            <li>
+                <a routerLink="/category/0/all" routerLinkActive="active-link">All</a>
+            </li>
+            <li *ngFor="let tempCategory of categories">
+                <a routerLink="/category/{{tempCategory.id}}/{{ tempCategory.categoryName }}" routerLinkActive="active-link">{{tempCategory.categoryName}}</a>
+            </li>
+          </ul>
+  
+          <div class="row portfolio-container" >
+  
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app" *ngFor="let tempPortfolio of portfolios">
+                    <div class="portfolio-img"><img src="{{tempPortfolio.imageUrl}}" class="img-fluid" alt=""></div>
+                    <div class="portfolio-info">
+                        <a href="{{tempPortfolio.siteUrl}}">
+                            <p style="font-size: 35px">{{tempPortfolio.name}}</p>
+                        </a>
+
+                    </div>
+                    <p style="font-size: 20px">{{tempPortfolio.description}}</p>
+                  </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End My Portfolio Section -->
