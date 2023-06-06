@@ -1,4 +1,5 @@
 export const environment = {
+    // baseUrl: 'http://localhost:5000',
     baseUrl: 'http://sslwd.us-east-1.elasticbeanstalk.com',
-    stripePublishableKey: 'pk_test_51MwnT8BXu20qYSKPYoDhOXOEsdt8F7E8YZzupcP7ZWz5OH3X9vxexSoCrXprR7rIg1aG66MoX70c5nAHuevaiYQv00teJTRiOF'
+    stripePublishableKey: 'pk_live_51MwnT8BXu20qYSKPMnZ1N7fRkGa8gnuvwdCGUABWYcIygegoPns4SxYF1ReU28HkE4IZ8uEIHruSok4U1amcsIGV00RBTJaUyv'
 };

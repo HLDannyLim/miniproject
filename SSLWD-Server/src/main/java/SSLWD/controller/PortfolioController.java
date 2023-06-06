@@ -18,7 +18,8 @@ import SSLWD.repo.SslwdRepo;
 
 @Controller
 @RequestMapping(path ="/api")
-@CrossOrigin("http://sslwd.s3-website-us-east-1.amazonaws.com")
+// @CrossOrigin("http://sslwd.s3-website-us-east-1.amazonaws.com")
+@CrossOrigin("http://localhost:4200")
 public class PortfolioController {
     @Autowired
     SslwdRepo sslwdRepo;

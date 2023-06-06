@@ -80,12 +80,11 @@ body{
 
 .img-text {
     position: absolute;
-    font-size: 8vw;
+    font-size: 7vw;
     color: white;
     margin: auto;
-    margin-top: 5rem;
-    margin-left: 8rem;
-    margin-bottom: 5rem;
+    margin-top: 30vh;
+    margin-left: 7vw;
 }
 
 .empty-space{

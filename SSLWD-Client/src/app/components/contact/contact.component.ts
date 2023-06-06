@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit{
   ngOnInit(): void {
     // google map
     let loader = new Loader({
-      apiKey:'AIzaSyA0ye3RoxQpYHQcLSosWQyQYjFt0QJ0rcM'
+      apiKey:'AIzaSyC5P7eH-Iy3o2YevySbRvpFumw9w_69cv0'
     });
     loader.load().then(()=>{
       console.log("loaded map")

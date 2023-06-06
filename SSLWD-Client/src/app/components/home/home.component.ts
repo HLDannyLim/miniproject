@@ -25,19 +25,19 @@ export class HomeComponent implements OnInit{
 
   listPortfolio(){
 
-    this.portfolioSvc.getPortfolio("google").subscribe(
+    this.portfolioSvc.getPortfolio("sslwd").subscribe(
       data => {
         // console.log('movie review =' + JSON.stringify(data));
         this.portfolios.push(data);
       }
     );
-    this.portfolioSvc.getPortfolio("youtube").subscribe(
+    this.portfolioSvc.getPortfolio("sslwd").subscribe(
       data => {
         // console.log('movie review =' + JSON.stringify(data));
         this.portfolios.push(data);
       }
     );
-    this.portfolioSvc.getPortfolio("shopee").subscribe(
+    this.portfolioSvc.getPortfolio("sslwd").subscribe(
       data => {
         // console.log('movie review =' + JSON.stringify(data));
         this.portfolios.push(data);

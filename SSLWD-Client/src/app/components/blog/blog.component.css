@@ -7,6 +7,30 @@ body{margin-top:20px;}
     background-color: black;
 }
 
+.img-text {
+  position: absolute;
+  font-size: 13vw;
+  color: white;
+  margin: auto;
+
+  margin-top: 0.1vh;
+  margin-left: 7vw;
+}
+
+.img-bg{
+    height: 70vh;
+    width: 100vw;
+
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(src\assets\images\coming-soon.jpg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .blog-listing {
     padding-top: 30px;
